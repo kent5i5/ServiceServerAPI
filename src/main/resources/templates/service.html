@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Bootstrap Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" />
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.5.2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-slider/css/bootstrap-slider.css}"/>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="row">
+        <div class="col">
+            <p> Create elder service request here</p>
+            <h2 class="mt-5">Services satification form</h2>
+
+
+
+            <form method="post" th:object="${skills}">
+                <div class="ml-2">
+                    <div class="form-group mt-3">
+                        <input id="java" type="text" th:field="*{java}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" data-slider-id='ex1Slider' class="skill"/>
+                        <span class="ml-2">JAVA: <strong id="javaVal">1</strong></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input id="css" type="text" th:field="*{css}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" class="skill"/>
+                        <span class="ml-2">CSS: <strong id="cssVal">1</strong></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input id="angular" type="text" th:field="*{angular}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" class="skill"/>
+                        <span class="ml-2">Angular: <strong id="angularVal">1</strong></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input id="python" type="text" th:field="*{python}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" class="skill"/>
+                        <span class="ml-2">Python: <strong id="pythonVal">1</strong></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input id="react" type="text" th:field="*{react}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" class="skill"/>
+                        <span class="ml-2">React: <strong id="reactVal">1</strong></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input id="go" type="text" th:field="*{go}" data-slider-min="1" data-slider-max="10"
+                               data-slider-step="1"
+                               data-slider-value="1" class="skill"/>
+                        <span class="ml-2">Go: <strong id="goVal">1</strong></span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> -->
+<!-- <script th:rel="stylesheet" th:src="@{assets/bootstrap-slider/bootstrap-slider.js}"></script> -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js"></script> 
+
+
+<script>
+    $(".skill").slider();
+    $(".skill").on("slide", function (slideEvt) {
+        $("#" + slideEvt.target.id + "Val").text(slideEvt.value);
+    });
+    $(".skill").on("change", function (slideEvt) {
+        $("#" + slideEvt.target.id + "Val").text(slideEvt.value.newValue);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Bootstrap Slider</title>
+    
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.5.2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+
+<div layout:fragment="content">
+    <h2 class="mt-5">Programming skills</h2>
+
+    <p>JAVA: <strong th:text="${skills.java}"></strong></p>
+    <p>CSS: <strong th:text="${skills.css}"></strong></p>
+    <p>Angular: <strong th:text="${skills.angular}"></strong></p>
+    <p>Python: <strong th:text="${skills.python}"></strong></p>
+    <p>React: <strong th:text="${skills.react}"></strong></p>
+    <p>Go: <strong th:text="${skills.go}"></strong></p>
+
+    <a th:href="@{/service}" class="btn btn-primary">Go back</a>
+</div>
+
+</body>
+</html>

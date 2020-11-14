@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Bootstrap Time Picker</title>
+
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.5.2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <h2 class="mt-5 mb-4">Event submitted</h2>
+
+    <p><label>Title: </label> <strong th:text="${event.title}"></strong></p>
+    <p><label>Description: </label> <strong th:text="${event.description}"></strong></p>
+    <p><label>Time: </label> <strong th:text="${event.time}"></strong></p>
+
+    <a th:href="@{/datepicker}" class="btn btn-primary">Go back</a>
+</div>
+
+</body>
+</html>
