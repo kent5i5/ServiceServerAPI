@@ -23,6 +23,11 @@ public class DatabaseLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception { 
-	
+		// this.repository.save(new Employer("ana@ow.com", "Baggins", "222 address"));
+		// this.acccountRepository.save(new Account("Ana","123456", 
+		// 					"pharah","ow",
+		// 					"ana@ow.com", "224 b street" ,
+		// 					33.003232, 122.00232323,
+		// 					24,true));
 	}
 }
