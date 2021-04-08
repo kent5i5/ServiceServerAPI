@@ -4,9 +4,34 @@
 <head>
     <meta charset="UTF-8"/>
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" />
-    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.5.2/css/bootstrap.min.css} "/>
+     <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.5.2/css/bootstrap.min.css} "/>
     <!-- <link th:rel="stylesheet" th:href="@{assets/bootstrap-slider/css/bootstrap-slider.css}"/> -->
+   
+    <link 
+    th:rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/solid.min.css" integrity="sha512-SazV6tF6Ko4GxhyIZpKoXiKYndqzh7+cqxl9HDH7DGSpjkCN3QLqTAlhJHJnKxu3/2rfCsltzwFC4CmxZE1hPg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css" integrity="sha512-kJ30H6g4NGhWopgdseRb8wTsyllFUYIx3hiUwmGAkgA9B/JbzUBDQVr2VVlWGde6sdBVOG7oU8AL35ORDuMm8g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css" integrity="sha512-D0B6cFS+efdzUE/4wh5XF5599DtW7Q1bZOjAYGBfC0Lg9WjcrqPXZto020btDyrlDUrfYKsmzFvgf/9AB8J0Jw==" crossorigin="anonymous" />
+    <!-- <script>
+        $( document ).ready(function() {
+            var ctrlVideo = document.getElementById("video"); 
+            $('button').click(function(){
+              if ($('button').hasClass("active")){
+                
+                    ctrlVideo.play();
+                
+                $('button').html("Pause");
+                $('button').toggleClass("active");
+              } else {
+                
+                    ctrlVideo.pause();
+                
+                $('button').html("play");
+                $('button').toggleClass("active");
+              }
+            });
+        });
+        </script> -->
 </head>
 <body>
 <!-- Navigation -->
@@ -26,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/account/employer/smith}">Employer List</a>
+                    <a class="nav-link" th:href="@{/bubblechat}">Bubble Chat</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/service}">Services</a>
@@ -39,7 +64,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container contextmin">
 <!-- Content Section -->
 <div layout:fragment="content">
     <p>This is filled by the content template.</p>
@@ -47,13 +72,25 @@
 </div>
 </body>
 
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-datetimepicker.min.js}" ></script>
+<script type="text/javascript" th:src="@{/js/video.js}" ></script>
 
-<script>
 
-</script>
+<footer>
+
+    <span style="font-size: 48px; color: Dodgerblue; padding-left: 1em;">
+        <i class="fab fa-facebook"></i></span>
+    <span style="font-size: 48px; color: Dodgerblue;">
+        <i class="fab fa-instagram"></i></span>
+    <span style="font-size: 48px; color: Dodgerblue;">
+        <i class="fab fa-twitter"></i></span>
+</footer>
 
 </body>
 </html>

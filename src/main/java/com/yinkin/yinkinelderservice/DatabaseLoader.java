@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.yinkin.yinkinelderservice.model.Account;
 
+
 @Component
 public class DatabaseLoader implements CommandLineRunner { 
 

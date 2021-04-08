@@ -1,17 +1,18 @@
 version: "3.1"
 services:
-  mongodb:
+  mongo:
     image: mongo:4.4.1
-    container_name: "mongodb"
-    hostname: localhost
+    container_name: "mongo"
+    #hostname: mongo
     ports:
     - 27017:27017
     restart: always
   app:
-    build: .
-    #image: yinkin/elderservice
+    #build: .
+    image: api
     restart: always
+    hostname: localhost
     ports:
     - 8080:8080
     depends_on:
-    - mongodb
+    - mongo

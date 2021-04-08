@@ -27,6 +27,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	@Autowired
+	private CustomExceptionHandler accessDeniedHandler;
 	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	// private AccountRepository userRepository;
@@ -37,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.authorizeRequests()
 				.antMatchers("/", "/home", "/account",
-                            "/js/**",
+							"/js/**",
                             "/css/**",
                             "/img/**",
 							"/webjars/**").permitAll() //.antMatchers("/user/**").hasRole("USER")
@@ -48,9 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.logout()
-				.permitAll();
-			// .exceptionHandling()
-			// 	.accessDeniedHandler(accessDeniedHandler);
+				.permitAll()
+			.and()
+			.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+			//.accessDeniedPage("/access-denied.html");
+				
 	}
 
 	@Bean

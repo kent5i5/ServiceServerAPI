@@ -19,6 +19,7 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 
+import com.amazonaws.services.ec2.model.Address;
 import com.yinkin.yinkinelderservice.model.*;
 
 @Controller
@@ -73,19 +74,55 @@ public class AccountController {
         //return "redirect:/service";
     }
 
+    @GetMapping("/list")
+    //public String getSuccess() {
+	public String accountListView(Model model) {
+        List<Account> accountList = accountRepository.findAll();
+
+        model.addAttribute("accounts", accountList);
+	    return"/account/accountlist";
+        //return "redirect:/service";
+    }
+
     @PutMapping("/user/{id}")
     Account replaceEmployee(@RequestBody Account newAccount, @PathVariable Long id) {
         return newAccount;
     }
 
-    @GetMapping("/employer/{name}")
-    public String replaceEmployee(Model model,@PathVariable String name) {
-        List<Employer> employerList = employerRepository.findByLastName(name);
-        model.addAttribute("name", name);
-        model.addAttribute("employers", employerList);
+    // @GetMapping("/employer/{name}")
+    // public String replaceEmployee(Model model,@PathVariable String name) {
+    //     List<Employer> employerList = employerRepository.findByLastName(name);
+    //     if(!name.isEmpty()){
+    //     model.addAttribute("name", name);
+    //     model.addAttribute("employers", employerList);
 
-        return "/account/employerList";
+    //     return "/account/employerList";
+    //     }else{
+    //         return "access-denied";
+    //     }
+    // }
+    @GetMapping("/employer/register/{name}")
+    public String registerEmployee(Model model,@PathVariable String name) {
+        //List<Employer> employerList = employerRepository.findByLastName(name);
+        if (employerRepository.findByFirstName(name) !=null){
+            // account already exists.
+       }else{
+           List<Account> accountList  = accountRepository.findByName(name);
+           String userAdress = "";
+           for (Account account : accountList) {
+            userAdress = account.getAddress();
+           }
+           Employer newEmployee = new Employer(name, "",  userAdress );
+           employerRepository.save(newEmployee);
+           model.addAttribute("accounts", accountList);
+           return "/account/employerRegistered";
+       }
+        model.addAttribute("name", name);
+        
+
+       return "/account/accessdenied";
     }
+
 
     //@DeleteMapping("/employees/{id}")
     @DeleteMapping("/resetdb")

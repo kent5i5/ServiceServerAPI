@@ -1,0 +1,76 @@
+.contextmin{
+    min-height: 500px;
+/*     
+    background-image: url('img_girl.jpg'); */
+}
+
+.roundiamge:hover {
+    border: 1px solid #777;
+  }
+.roundiamge{
+    border-image-width: 1px;
+    border-radius: 50%;
+}
+
+video {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+  }
+  .video-wrapper {
+    position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+   
+}
+  .videobutton {
+    background-color: #666;
+    border: medium none;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    left: 0;
+    margin: 0 auto;
+    padding: 8px 16px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.videobutton.active {
+    background-color: #0077a2;
+  }
+
+
+.responsive {
+    background-color: blueviolet;
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+  }
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
