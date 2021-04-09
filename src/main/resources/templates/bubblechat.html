@@ -12,13 +12,14 @@
 <body>
 
     <div layout:fragment="content" th:remove="tag">
-        <h4 style="background-color: beige;">Welcome to bubble chat. Chat about games</h4>
+    <div class="container">
+        <h4 style="background-color: rgb(255, 255, 255);">Welcome to bubble chat. Chat to learn</h4>
             
         <div class="row">
 
-            <div class="col" >  <div><img src="https://www.johnnyseeds.com/dw/image/v2/BBBW_PRD/on/demandware.static/-/Sites-jss-master/default/dw68d91967/images/products/flowers/01743_01_fullsunimp.jpg?sw=387&cx=408&cy=24&cw=1016&ch=1016"
-                class="roundiamge" alt="round" width="100" height="100" /></div>
-
+            <div class="col-1" >  <div><img src="https://www.johnnyseeds.com/dw/image/v2/BBBW_PRD/on/demandware.static/-/Sites-jss-master/default/dw68d91967/images/products/flowers/01743_01_fullsunimp.jpg?sw=387&cx=408&cy=24&cw=1016&ch=1016"
+                class="roundiamge" alt="round" width="80" height="80" /></div>
+<!-- 
                 <span style="font-size: 48px; color: Dodgerblue;">
                 <i class="fas fa-frog"></i>
                 </span>
@@ -28,16 +29,16 @@
 
                 <span style="font-size: 48px; color: Dodgerblue;">
                     <i class="fas fa-frog"></i>
-                    </span>
+                    </span> -->
             
             
             </div>
               
-                <div class="col-6" >
+                <div class="col-8" >
                     <div class="video-wrapper">
                     <!-- <img src="https://www.johnnyseeds.com/dw/image/v2/BBBW_PRD/on/demandware.static/-/Sites-jss-master/default/dw68d91967/images/products/flowers/01743_01_fullsunimp.jpg?sw=387&cx=408&cy=24&cw=1016&ch=1016"
                     width="520" height="340"  /> -->
-                    <video id="banner-video z-depth-1" style="margin-top: 0;"width="680"  preload="auto"  autoplay  controls muted loop poster="pexels-nick-bondarev">
+                    <video id="banner-video z-depth-1" style="margin-top: 0;" width="680"  preload="auto"  autoplay  controls muted loop poster="pexels-nick-bondarev">
                         <source src="/production.mp4" type="video/mp4" poster="poster.jpg"  >
                         <source src="movie.ogg" type="video/ogg">
                       Your browser does not support the video tag.
@@ -46,26 +47,35 @@
                     </div>
                    </div>
                
-               <div class="col-4" >
+               <div class="col-3" >
                    
-                <div style="float: right;">
-                    <span class="responsive" style="width:100%;font-size: 48px; color: Dodgerblue;">
-                <i class="fas fa-fish"> chat</i></span>
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
+                <div style="float: right">
+                    <div class="row"> <span class="responsive" style="width:100%;font-size: 48px; color: Dodgerblue;">
+                <i class="fas fa-fish"> chat</i></span></div>
+                
+                   <table style="width: 240px;">
+                    <tr>
+                      <th>messages</th>
+                    </tr>
+                    <tr style="background-color:rgba(255, 255, 255, 0.582); border-width: 1px; border-style: dotted; border-radius: 0.5px;" th:each="message : ${messages}">
+                      <!--  <td th:text="${message.name} : "></td>
+                     <td th:text="${message.email}"></td> -->
+                      <td th:text="${message.message}"></td>
+                    </tr>
+                  </table>
+                    <form method="post" th:action="@{/demo/addMsg}">
 
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
-                   <div> <p>---</p></div>
-                   <input type="text" style="width:100%;"/><button style="float: right;"> CHAT</button>
-                       
-
+                            <div class="form-group" >
+                            <input class="form-control" placeholder="message"  id="message" name="message" type="text" style="width:100%;"/>
+                                </div>
+                   
+                            <div class="form-group">
+                                <button class="form-control" type="submit" style="float: right;"> CHAT</button>
+                                    </div>
+                        </form>
                 </div>
             </div>
-        
+      
 <!--        
 
         <table>
@@ -93,7 +103,7 @@
         </table> -->
 
     </div>
-        
+    </div>   
 </body>
 
 </html>

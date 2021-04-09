@@ -22,11 +22,14 @@
                     </div>
                     <div th:if="${param.logout}">
                         You have been logged out.
-                    </div>
-                    <p>Pleas login below</p>
+                        <p>Pleas login below</p>
                     <ul>
                         <li>Go to the <a href="/user" th:href="@{/user}">Log in page</a></li>
                     </ul>
+                    </div>
+
+                    <a href="/logout">logout</a>
+                    
                 </div>
             </div>
         </div>
