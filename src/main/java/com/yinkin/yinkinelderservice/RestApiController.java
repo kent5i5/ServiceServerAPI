@@ -22,6 +22,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+* <h1>Rest Api Controller</h1>
+* This controller handles request from react frontend application
+* <p>
+* <b>Note:</b> Underdevelopment
+*
+* @author  Kenneth
+* @version 1.0
+* @since   2020-08-11
+*/
 @Controller
 @RequestMapping({ "/api" })
 public class RestApiController {
@@ -35,7 +45,15 @@ public class RestApiController {
         this.employerRepository = employerRepository;
     }
 
-    //Login 
+    
+  /**
+   * This method handles login  post http requests from the user and
+   * Check if the Account exits and decides if the account
+   * exits and allows login process to process.
+   * @param firstname string that represents the name of the account
+   * @return Account object and success state Text
+   * @exception Exception On any error.
+   */
     @PostMapping(path="/user")
     ResponseEntity<Account> loginHandler2( @Valid @RequestBody String firstname) throws Exception {
         //A ccount anewAccount =
@@ -55,22 +73,12 @@ public class RestApiController {
       return ResponseEntity.created(new URI("/api/user/" + a)).body(account) ;
     }
 
-    
-    @PostMapping(path="/user1")
-    public @ResponseBody String loginHandler(@Valid @RequestBody String firstname) throws Exception {
-        //A ccount anewAccount =
-        //model.addAttribute("account", newAccount);
-        String a = "";
-        if (employerRepository.findByFirstName(firstname) !=null){
-             // account already exists.
-        }else{
-            //accountRepository.findAll();
-            a = "bob@b.com";
-        }
-        
-      return "<div>this is a pass </div>";
-    }
 
+  /**
+   * This method handle get requests 
+   * @param model model data passing from UI
+   * @return return list of  employer and user accounts. 
+   */
     @GetMapping
     public String apihandler(Model model){
        
@@ -81,8 +89,8 @@ public class RestApiController {
         return "api/displayall";
     }
     
-    @GetMapping("/user")
-    public @ResponseBody String employerCheck(){
-        return "this is employer ";
-    }
+    // @GetMapping("/user")
+    // public @ResponseBody String employerCheck(){
+    //     return "this is employer ";
+    // }
 }

@@ -173,7 +173,8 @@ public class AccountController {
 
  /**
    * Delete all accounts.
-   * @param id the id of the account
+   * @param args Unused.
+   * @return Nothing.
    */
     @DeleteMapping("/resetdb")
     void deleteEmployee(@PathVariable Long id) {

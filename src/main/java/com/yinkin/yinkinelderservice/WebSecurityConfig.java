@@ -73,7 +73,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new accountService();
 	}
 
-	
+  /**
+   * This method configures authentication for all user accounts and encodes the password
+   * @param auth 
+   */	
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // auth.inMemoryAuthentication()
