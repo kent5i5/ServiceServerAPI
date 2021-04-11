@@ -22,4 +22,19 @@ EmployerRepository extends MongoRepository<Employer,String> provides methods to 
 
 UserRepository extends CrudRepository<User, Integer> provides methods to retrieve data fromm MySql database as User type
 
+## thymeleaf dashboard
+
+UI interface directly connect to the spring boot applicaiton
+
+Provide base log in and log out with functions
+
+## React website
+
+React web application is a separated application which connect to spring boot applicaiton using Restful API
+
+Spring boot will send data as JSON format to React UI
+
+
+The Project is underdevelopment.
+
 
