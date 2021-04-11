@@ -22,10 +22,22 @@ public class accountService implements UserDetailsService  {
     private AccountRepository accountRepository;
     @Autowired
     private EmployerRepository employerRepository;
+
+     /**
+   * This method is used to retrieve an accout by email
+   * @param email string that represents the email of the account
+   * @return succuess or fail message
+   */
     public Account findUserByEmail(String email) {
         return accountRepository.findByEmail(email);
     }
 
+  /**
+   * This method is used to load the user account and assgin 
+   * a USER/EMPLOYER permission based on the type of user
+   * @param email string that represents the email of the account
+   * @return buildUserForAuthentication object 
+   */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Set<String> role = new HashSet<>();
@@ -44,6 +56,12 @@ public class accountService implements UserDetailsService  {
         }
     }
 
+    
+  /**
+   * This method generates an user with USER/EMPLOYER permission
+   * @param email string that represents the email of the account
+   * @return security user with authorities
+   */
     private UserDetails buildUserForAuthentication(Account user, List<GrantedAuthority> authorities) {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
     }
