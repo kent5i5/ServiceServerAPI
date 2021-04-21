@@ -16,12 +16,6 @@ public class bubblechatController {
     @Autowired
     private MessageRepository messageRepository;
     
-    // @GetMapping
-    // public String index(){
-
-
-    //     return "bubblechat";
-    // }
 
     @GetMapping
     public String index(Model model) {

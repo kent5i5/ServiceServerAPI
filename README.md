@@ -7,6 +7,8 @@
     Backend: Spring boot server , mongo database/MySql
     Frontend: React / thymeleaf
 
+    React repository: https://github.com/kent5i5/ServiceFrontEnd
+
 ## General configuration of the spring boot app
 
 WebSecurityConfig defines what request will go through

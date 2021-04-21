@@ -144,7 +144,7 @@ public class AccountController {
    * This method is used to registered new employer 
    * if the employer accout doesn't exists and the user has
    * an account already, this method create a new employer 
-   * account for the user
+   * account for the user account
    * @param model the data model coming from the user
    * @param name the user name of an account that want to create employer account
    * @return succuess or fail message

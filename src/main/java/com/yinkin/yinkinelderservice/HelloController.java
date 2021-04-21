@@ -6,7 +6,16 @@ import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
+/**
+* <h1>Hello Controller</h1>
+* This controller display base pages
+* <p>
+* <b>Note:</b> Underdevelopment
+*
+* @author  Kenneth
+* @version 1.0
+* @since   2020-08-11
+*/
 @Controller
 public class HelloController {
 
